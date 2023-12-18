@@ -7,6 +7,29 @@ export const Main = () => {
   const [day, setDay] = useState<number>(0)
   const [showSandBox, setShow] = useState<boolean>(false)
   const [index, setIndex] = useState<number>(0)
+  const [isVisible, setIsVisible] = useState(false)
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    })
+  }
+
+  const toggleVisibility = () => {
+    if (window.pageYOffset > 300) {
+      setIsVisible(true)
+    } else {
+      setIsVisible(false)
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', toggleVisibility)
+    return () => {
+      window.removeEventListener('scroll', toggleVisibility)
+    }
+  }, [])
 
   useEffect(() => {
     const date = new Date()
@@ -63,9 +86,9 @@ export const Main = () => {
     return day === index + 1 ? 'current door jiggle' : 'door'
   }
 
-  // useEffect(() => {
-  //   document.body.style.overflow = showSandBox ? 'hidden' : ''
-  // }, [showSandBox])
+  useEffect(() => {
+    document.body.style.overflow = showSandBox ? 'hidden' : ''
+  }, [showSandBox])
 
   return (
     <div>
@@ -79,7 +102,9 @@ export const Main = () => {
                   e.preventDefault()
                   setIndex(index)
                   setShow(!showSandBox)
+                  scrollToTop()
                 }}
+                style={{ display: isVisible ? 'block' : 'none' }}
               >
                 {index + 1}
               </button>
