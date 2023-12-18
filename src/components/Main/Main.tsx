@@ -9,7 +9,7 @@ export const Main = () => {
   const [showSandBox, setShow] = useState<boolean>(false)
   const [index, setIndex] = useState<number>(0)
   const [isVisible, setIsVisible] = useState(false)
-
+  console.log(isVisible)
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
