@@ -63,9 +63,9 @@ export const Main = () => {
     return day === index + 1 ? 'current door jiggle' : 'door'
   }
 
-  useEffect(() => {
-    document.body.style.overflow = showSandBox ? 'hidden' : ''
-  }, [showSandBox])
+  // useEffect(() => {
+  //   document.body.style.overflow = showSandBox ? 'hidden' : ''
+  // }, [showSandBox])
 
   return (
     <div>
