@@ -36,7 +36,11 @@ export const Main = () => {
     }
   }, [day])
 
-  const handleClick = (adventwindow: number) => {
+  const handleClick = (
+    e: React.MouseEvent<HTMLLIElement, MouseEvent>,
+    adventwindow: number
+  ) => {
+    e?.preventDefault
     const doors = document.getElementsByClassName('door')
     if (adventwindow + 1 > day) return
     if (adventwindow < day) {
@@ -69,7 +73,7 @@ export const Main = () => {
       <ul>
         {Array.from({ length: 31 }, (_, index) => (
           <React.Fragment key={index + 1}>
-            <li onClick={() => handleClick(index)} key={index + 1}>
+            <li onClick={(e) => handleClick(e, index)} key={index + 1}>
               <button
                 onClick={(e) => {
                   e.preventDefault()
