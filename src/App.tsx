@@ -1,7 +1,8 @@
+import { Main } from '@components/Main/Main'
 import './App.css'
 
 function App() {
-  return <div>This is template!!!</div>
+  return <Main />
 }
 
 export default App
