@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { PostCard } from '@components/PostCard/PostCard'
 import './style.css'
 
@@ -9,7 +8,7 @@ export const Main = () => {
   const [showSandBox, setShow] = useState<boolean>(false)
   const [index, setIndex] = useState<number>(0)
   const [isVisible, setIsVisible] = useState(false)
-  console.log(isVisible)
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -105,6 +104,7 @@ export const Main = () => {
                   setShow(!showSandBox)
                   scrollToTop()
                 }}
+                style={{ display: isVisible ? '' : '' }}
               >
                 {index + 1}
               </button>
