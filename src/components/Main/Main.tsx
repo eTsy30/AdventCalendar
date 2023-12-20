@@ -122,7 +122,7 @@ export const Main = () => {
         <a href="https://t.me/etsig">
           <i className="fa-brands fa-telegram"></i>
         </a>
-        <a href="https://drive.google.com/file/d/1wNYg0LF0a55Zd--woejUB1Qg5HDmMyVj/view?pli=1">
+        <a href="https://drive.google.com/file/d/1dAqciG6_zKRZM-txQAjQalVp3Z6cqbrQ/view?usp=sharing">
           <i className="fa-solid fa-user-tie"></i>
         </a>
       </div>
