@@ -1,10 +1,15 @@
 @import url(https://fonts.googleapis.com/css?family=Oleo+Script);
 
 body {
-  background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/xmas.jpg');
-  color: #fff;
+  background-image: url('../../../public/bg1.jpeg');
+  color: #800000;
   font-family: 'Rum Raisin', sans-serif;
   font-weight: 400;
+  background-repeat: no-repeat;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 h1 {
@@ -47,7 +52,7 @@ li {
   transition: all 0.4s ease-in-out;
 }
 
-ul li:last-child {
+/* ul li:last-child {
   background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/santa.jpg')
     center top;
   background-size: cover;
@@ -67,7 +72,7 @@ ul li:last-child .door {
 
 ul li:last-child .revealed {
   line-height: 123px;
-}
+} */
 
 .door {
   user-select: none;
@@ -122,7 +127,7 @@ ul li:last-child .revealed {
   transform: rotate3d(0, 1, 0, -98deg);
 }
 
-.jiggle {
+/* .jiggle { // анимация
   animation: jiggle 0.2s infinite;
   transform: rotate(-1deg);
 }
@@ -134,7 +139,7 @@ ul li:last-child .revealed {
   50% {
     transform: rotate(1deg);
   }
-}
+} */
 
 @media screen and (min-width: 480px) {
   li {
@@ -143,9 +148,9 @@ ul li:last-child .revealed {
 }
 
 @media screen and (min-width: 768px) {
-  body {
-    background-size: 150px;
-  }
+  /* body {
+    background-size: 150px; 
+  }*/
 
   p {
     right: 6%;

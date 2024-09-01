@@ -8,6 +8,7 @@ export const Main = () => {
   const [showSandBox, setShow] = useState<boolean>(false)
   const [index, setIndex] = useState<number>(0)
   const [isVisible, setIsVisible] = useState(false)
+  const [currentDayPerMonth, setCurrentDayPerMonth] = useState<number>(0)
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -35,10 +36,14 @@ export const Main = () => {
     const date = new Date()
     const currentDay = date.getDate()
     const month = date.getMonth() + 1
+    const year = date.getFullYear()
+    const daysInCurrentMonth = new Date(year, month, 0).getDate()
 
+    setCurrentDayPerMonth(daysInCurrentMonth)
     setDay(currentDay)
+    console.log(new Date(year, month, 0).getDate())
 
-    if (month === 12) {
+    if (month === 9) {
       const openPastWindows = (adventwindow: number) => {
         if (currentDay !== adventwindow && adventwindow < currentDay) {
           setTimeout(
@@ -53,7 +58,7 @@ export const Main = () => {
         }
       }
 
-      for (let i = 1; i <= 31; i++) {
+      for (let i = 1; i <= currentDayPerMonth; i++) {
         openPastWindows(i)
       }
     }
@@ -92,9 +97,9 @@ export const Main = () => {
 
   return (
     <div>
-      <h1>Merry Christmas</h1>
+      <h1>Наш календарь свиданий</h1>
       <ul>
-        {Array.from({ length: 31 }, (_, index) => (
+        {Array.from({ length: currentDayPerMonth }, (_, index) => (
           <React.Fragment key={index + 1}>
             <li onClick={(e) => handleClick(e, index)} key={index + 1}>
               <button
@@ -115,17 +120,6 @@ export const Main = () => {
       </ul>
 
       {showSandBox && <PostCard day={index} setShow={setShow} />}
-      <div className="sotial">
-        <a href="https://github.com/eTsy30">
-          <i className="fa-brands fa-github"></i>
-        </a>
-        <a href="https://t.me/etsig">
-          <i className="fa-brands fa-telegram"></i>
-        </a>
-        <a href="https://drive.google.com/file/d/1dAqciG6_zKRZM-txQAjQalVp3Z6cqbrQ/view?usp=sharing">
-          <i className="fa-solid fa-user-tie"></i>
-        </a>
-      </div>
     </div>
   )
 }
